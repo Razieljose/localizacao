@@ -16,10 +16,24 @@ public class LocalizationApplication implements CommandLineRunner {
 	void listCity(){
 		cityRepository.findAll().forEach(System.out::println);
 	}
+    void listCityPerName(){
+		cityRepository.findByName("PERNAMBUCO").forEach(System.out::println);
+	}
+	void listCityPerPopulation(){
+		cityRepository.findByPopulation(14124132512L).forEach(System.out::println);
+	}void listCityPerNameStartingWith(){
+		cityRepository.findByNameStartingWith("SAO").forEach(System.out::println);
+	}void listCityPerNameContaining(){
+		cityRepository.findByNameContaining("PORTO").forEach(System.out::println);
+	}
 
 	@Override
 	public void run(String... args) throws Exception {
 		listCity();
+		listCityPerName();
+		listCityPerPopulation();
+		listCityPerNameStartingWith();
+		listCityPerNameContaining();
 	}
 
 	public static void main(String[] args) {
