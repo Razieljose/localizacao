@@ -17,11 +17,11 @@ import lombok.NoArgsConstructor;
 public class City {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "Id")
     private Long Id;
-    @Column(name = "name", length = 50)
+    @Column(name = "Name", length = 50)
     private String name;
-    @Column(name = "population")
+    @Column(name = "Population")
     private Long population;
 
 }

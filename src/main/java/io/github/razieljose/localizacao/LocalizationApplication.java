@@ -13,20 +13,12 @@ public class LocalizationApplication implements CommandLineRunner {
 
 	@Autowired
 	CityRepository cityRepository;
-
-	@Transactional
-	void saveCity(){
-		var city = new City(1L, "Pernambuco", 9051113L);
-		cityRepository.save(city);
-	}
-
 	void listCity(){
 		cityRepository.findAll().forEach(System.out::println);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		saveCity();
 		listCity();
 	}
 
