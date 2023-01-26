@@ -11,4 +11,5 @@ List<City> findByName(String name);
 List<City> findByNameStartingWith(String name);
 List<City> findByNameContaining(String name);
 List<City> findByPopulation(Long population);
+    List<City> findByNameLike(String name);
 }
