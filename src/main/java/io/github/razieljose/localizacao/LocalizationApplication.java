@@ -35,6 +35,18 @@ public class LocalizationApplication implements CommandLineRunner {
         cityRepository.findByNameLike("%ONAS").forEach(System.out::println);
     }
 
+    void listCityPerPopulationLessThan(){
+        cityRepository.findByPopulationLessThan(1000L).forEach(System.out::println);
+    }
+
+    void listPerCityPerPopulationGreaterThan(){
+        cityRepository.findByPopulationGreaterThanEqual(123L).forEach(System.out::println);
+    }
+
+    void listPerCityPerPopulationGreaterThanAndNameLike(){
+        cityRepository.findByPopulationGreaterThanEqualAndNameLike(123L, "PER%").forEach(System.out::println);
+    }
+
     @Override
     public void run(String... args) throws Exception {
         listCity();
@@ -43,6 +55,9 @@ public class LocalizationApplication implements CommandLineRunner {
         listCityPerNameStartingWith();
         listCityPerNameContaining();
 		listCityPerNameLike();
+        listCityPerPopulationLessThan();
+        listPerCityPerPopulationGreaterThan();
+        listPerCityPerPopulationGreaterThanAndNameLike();
     }
 
     public static void main(String[] args) {

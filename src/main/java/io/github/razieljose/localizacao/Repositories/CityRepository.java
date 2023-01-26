@@ -5,11 +5,22 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface CityRepository extends JpaRepository <City, Long>{
+public interface CityRepository extends JpaRepository<City, Long> {
 
-List<City> findByName(String name);
-List<City> findByNameStartingWith(String name);
-List<City> findByNameContaining(String name);
-List<City> findByPopulation(Long population);
+    List<City> findByName(String name);
+
+    List<City> findByNameStartingWith(String name);
+
+    List<City> findByNameContaining(String name);
+
+    List<City> findByPopulation(Long population);
+
     List<City> findByNameLike(String name);
+
+    List<City> findByPopulationLessThan(Long population);
+
+    List<City> findByPopulationGreaterThanEqual(Long population);
+
+    List<City> findByPopulationGreaterThanEqualAndNameLike(Long population, String name);
+
 }
