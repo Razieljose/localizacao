@@ -1,6 +1,6 @@
 package io.github.razieljose.localizacao;
 
-import io.github.razieljose.localizacao.Repositories.CityRepository;
+import io.github.razieljose.localizacao.Services.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,54 +10,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class LocalizationApplication implements CommandLineRunner {
 
     @Autowired
-    CityRepository cityRepository;
-
-    void listCity() {
-        cityRepository.findAll().forEach(System.out::println);
-    }
-
-    void listCityPerName() {
-        cityRepository.findByName("PERNAMBUCO").forEach(System.out::println);
-    }
-
-    void listCityPerPopulation() {
-        cityRepository.findByPopulation(14124132512L).forEach(System.out::println);
-    }
-
-    void listCityPerNameStartingWith() {
-        cityRepository.findByNameStartingWith("SAO").forEach(System.out::println);
-    }
-
-    void listCityPerNameContaining() {
-        cityRepository.findByNameContaining("PORTO").forEach(System.out::println);
-    }
-	void listCityPerNameLike() {
-        cityRepository.findByNameLike("%ONAS").forEach(System.out::println);
-    }
-
-    void listCityPerPopulationLessThan(){
-        cityRepository.findByPopulationLessThan(1000L).forEach(System.out::println);
-    }
-
-    void listPerCityPerPopulationGreaterThan(){
-        cityRepository.findByPopulationGreaterThanEqual(123L).forEach(System.out::println);
-    }
-
-    void listPerCityPerPopulationGreaterThanAndNameLike(){
-        cityRepository.findByPopulationGreaterThanEqualAndNameLike(123L, "PER%").forEach(System.out::println);
-    }
+    private CityService cityService;
 
     @Override
     public void run(String... args) throws Exception {
-        listCity();
-        listCityPerName();
-        listCityPerPopulation();
-        listCityPerNameStartingWith();
-        listCityPerNameContaining();
-		listCityPerNameLike();
-        listCityPerPopulationLessThan();
-        listPerCityPerPopulationGreaterThan();
-        listPerCityPerPopulationGreaterThanAndNameLike();
+        cityService.listCity();
+        cityService.listCityPerName();
+        cityService.listCityPerPopulation();
+        cityService.listCityPerNameStartingWith();
+        cityService.listCityPerNameContaining();
+        cityService.listCityPerNameLike();
+        cityService.listCityPerPopulationLessThan();
+        cityService.listPerCityPerPopulationGreaterThan();
+        cityService.listPerCityPerPopulationGreaterThanAndNameLike();
     }
 
     public static void main(String[] args) {
