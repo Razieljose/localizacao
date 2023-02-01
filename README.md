@@ -1,2 +1,2 @@
-# PROJETO COM DIDÁTICA PARA ESTUDOS
-### Projeto criado para treinar habilidades com JPA
+## PROJETO COM DIDÁTICA PARA ESTUDOS
+<p align="center">Projeto para treinar habilidades com o JPA</p>
